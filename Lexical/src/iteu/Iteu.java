@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package iteu;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 /**
  *
@@ -19,7 +20,20 @@ public class Iteu {
          Scanner reader = new Scanner(System.in); 
         //String str ;//= "abcd1234";
         System.out.println("Input: ");
-        String str = reader.nextLine();
+        try{
+            reader = new Scanner(new File("string.txt"));
+        }
+        catch(Exception e){
+            System.out.println("no file found");
+        }
+        String str = "";
+        while(reader.hasNext()){
+            str += reader.next();
+            
+        }
+        System.out.println(str);
+        reader.close();
+            //String str = reader.nextLine();
         //String[] part = str.split("(?<=\\D)(?=\\d)");
         //System.out.println(part[0]);
         //System.out.println(part[1]);
